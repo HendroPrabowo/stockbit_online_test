@@ -8,7 +8,8 @@ type AppConfig struct {
 }
 
 type Server struct {
-	Port string
+	Port     string
+	GrpcPort string
 }
 
 type Omdb struct {
