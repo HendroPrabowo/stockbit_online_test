@@ -34,13 +34,6 @@ func createListSortedWord(arrWords []string) (list map[string]bool) {
 	return
 }
 
-func isAnagram(word1, word2 string) bool {
-	if sortWord(word1) == sortWord(word2) {
-		return true
-	}
-	return false
-}
-
 func sortWord(word string) string {
 	wordInRune := []rune(word)
 	sort.Slice(wordInRune, func(i, j int) bool {

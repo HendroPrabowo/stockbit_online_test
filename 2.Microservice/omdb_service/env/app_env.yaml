@@ -1,3 +1,6 @@
 service_name: omdb_service
 server:
   port: 8000
+omdb:
+  url: http://www.omdbapi.com
+  apikey: faf7e5bb

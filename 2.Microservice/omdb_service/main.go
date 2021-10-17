@@ -3,12 +3,12 @@ package main
 import (
 	"net/http"
 
-	"omdb_service/infrastructure/config"
-
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/sirupsen/logrus"
+
+	"omdb_service/infrastructure/config"
 )
 
 var AppConfig config.AppConfig
