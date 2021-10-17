@@ -21,6 +21,7 @@ func main() {
 	setCors(r)
 	r.Use(middleware.Logger)
 
+	// inject movie routes
 	movieRoutes := movie.NewRoute(config.Config)
 	movieRoutes.RegisterRoutes(r)
 
