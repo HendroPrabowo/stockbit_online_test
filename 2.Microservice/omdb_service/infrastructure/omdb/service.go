@@ -18,8 +18,8 @@ func NewService(config config.AppConfig) Service {
 	return &ServiceImpl{config.Omdb.Url, config.Omdb.ApiKey}
 }
 
-func (svc ServiceImpl) GetMovies(searchKey, pagination string) (result Result, err error) {
-	url := fmt.Sprintf("%s/?apikey=%s&s=%s&page=%s", svc.url, svc.apikey, searchKey, pagination)
+func (svc ServiceImpl) GetMovies(searchWord, pagination string) (result Result, err error) {
+	url := fmt.Sprintf("%s/?apikey=%s&s=%s&page=%s", svc.url, svc.apikey, searchWord, pagination)
 	resp, err := httpUtils.ForwardRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return result, err

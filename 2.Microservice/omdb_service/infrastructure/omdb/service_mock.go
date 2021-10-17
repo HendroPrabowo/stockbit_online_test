@@ -49,16 +49,16 @@ func (mr *MockServiceMockRecorder) GetMovie(filter interface{}) *gomock.Call {
 }
 
 // GetMovies mocks base method.
-func (m *MockService) GetMovies(searchKey, pagination string) (Result, error) {
+func (m *MockService) GetMovies(searchWord, pagination string) (Result, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetMovies", searchKey, pagination)
+	ret := m.ctrl.Call(m, "GetMovies", searchWord, pagination)
 	ret0, _ := ret[0].(Result)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
 // GetMovies indicates an expected call of GetMovies.
-func (mr *MockServiceMockRecorder) GetMovies(searchKey, pagination interface{}) *gomock.Call {
+func (mr *MockServiceMockRecorder) GetMovies(searchWord, pagination interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMovies", reflect.TypeOf((*MockService)(nil).GetMovies), searchKey, pagination)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetMovies", reflect.TypeOf((*MockService)(nil).GetMovies), searchWord, pagination)
 }

@@ -8,8 +8,9 @@ import (
 	"github.com/spf13/viper"
 )
 
-func Init() AppConfig {
-	var config AppConfig
+var Config AppConfig
+
+func Init() {
 	path, err := os.Getwd()
 	if err != nil {
 		logrus.Fatalf("Error Read Path : %s\n", err.Error())
@@ -20,8 +21,7 @@ func Init() AppConfig {
 	if err := viper.ReadInConfig(); err != nil {
 		logrus.Fatalf("Error Load Config : %s\n", err.Error())
 	}
-	if err := viper.Unmarshal(&config); err != nil {
+	if err := viper.Unmarshal(&Config); err != nil {
 		logrus.Fatalf("Error Load Config : %s\n", err.Error())
 	}
-	return config
 }

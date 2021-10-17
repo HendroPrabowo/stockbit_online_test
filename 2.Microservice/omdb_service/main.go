@@ -9,23 +9,23 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"omdb_service/infrastructure/config"
+	"omdb_service/movie"
 )
 
-var AppConfig config.AppConfig
-
 func init() {
-	AppConfig = config.Init()
+	config.Init()
 }
 
 func main() {
 	r := chi.NewRouter()
 	setCors(r)
 	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("welcome"))
-	})
-	logrus.Infof("%s running on port %s\n", AppConfig.ServiceName, AppConfig.Server.Port)
-	http.ListenAndServe(":"+AppConfig.Server.Port, r)
+
+	movieRoutes := movie.NewRoute(config.Config)
+	movieRoutes.RegisterRoutes(r)
+
+	logrus.Infof("%s running on port %s\n", config.Config.ServiceName, config.Config.Server.Port)
+	http.ListenAndServe(":"+config.Config.Server.Port, r)
 }
 
 func setCors(r *chi.Mux) {
